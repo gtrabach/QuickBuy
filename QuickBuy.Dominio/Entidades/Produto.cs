@@ -14,7 +14,15 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Nome))
+            {
+                AdicionarMensagem("Erro de Preenchimento! O nome do produto não pode ser vazio.");
+            }
+
+            if (Preco <= 0)
+            {
+                AdicionarMensagem("Erro de Preenchimento! O preço do produto não pode ser menor ou igual a zero.")
+            }
         }
     }
 }

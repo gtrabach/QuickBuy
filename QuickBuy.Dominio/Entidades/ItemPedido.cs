@@ -13,7 +13,20 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (Id == 0)
+            {
+                AdicionarMensagem("Erro de Preenchimento! O Id do Item do Pedido não foi informado.");
+            }
+
+            if (ProdutoId == 0)
+            {
+                AdicionarMensagem("Erro de Preenchimento! O produto informado não existe.");
+            }
+
+            if (Quantidade < 1)
+            {
+                AdicionarMensagem("Erro de preenchimento! A quantidade mínima de compra deste produto é 1.");
+            }
         }
     }
 }

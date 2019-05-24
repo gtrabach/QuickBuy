@@ -17,7 +17,27 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Email))
+            {
+                AdicionarMensagem("Erro de preenchimento! O e-mail informado não é válido.");
+            }
+
+            if (string.IsNullOrEmpty(Senha))
+            {
+                AdicionarMensagem("Erro de preenchimento! Por favor informe uma senha.");
+            }
+
+            if (string.IsNullOrEmpty(Nome))
+            {
+                AdicionarMensagem("Erro de preenchimento! Por favor informe o seu nome.");
+            }
+
+            if (string.IsNullOrEmpty(SobreNome))
+            {
+                AdicionarMensagem("Erro de preenchimento! Por favor informe o seu sobrenome.");
+            }
+
+
         }
     }
 }
