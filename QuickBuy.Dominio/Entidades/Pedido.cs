@@ -1,11 +1,12 @@
 ﻿using QuickBuy.Dominio.ObjetoDeValor;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace QuickBuy.Dominio.Entidades
 {
-    public class Pedido
+    public class Pedido : Entidade
     {
 
         public int Id { get; set; }
@@ -23,5 +24,19 @@ namespace QuickBuy.Dominio.Entidades
 
         public ICollection<ItemPedido> ItensPedido { get; set; }
 
+        public override void Validate()
+        {
+            LimparMensagensValidacao();
+
+            if (!ItensPedido.Any())
+            {
+                AdicionarMensagem("Erro de preenchimento! O pedido não deve ficar sem itens!");
+            }
+
+            if (String.IsNullOrEmpty(CEP))
+            {
+                AdicionarMensagem("Erro de preenchimento! Não foi informado um CEP!");
+            }
+        }
     }
 }
