@@ -21,7 +21,7 @@ namespace QuickBuy.Dominio.Entidades
 
             if (Preco <= 0)
             {
-                AdicionarMensagem("Erro de Preenchimento! O preço do produto não pode ser menor ou igual a zero.")
+                AdicionarMensagem("Erro de Preenchimento! O preço do produto não pode ser menor ou igual a zero.");
             }
         }
     }
